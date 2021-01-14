@@ -1,1 +1,3 @@
-# homework-6
+This assignment focuses on students using APIs to produce a weather app. The weather dashboard, which is dynamically updated, retrieves weather data. The interface allows users to  see the weather outlook for chosen cities. The outlook includes: five day forecast, current temperature/conditions, humidity, wind speed, and the UV index. Searched cities can be stored for the user to retrieve at a later time.
+
+![](Assets/06-server-side-apis-homework-demo.png)
