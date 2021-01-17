@@ -5,7 +5,7 @@ var searchButton = ("search-button")
 var currentCity = ("c")
 
 
-
+//1.City name is entered, search is conducted with API: create button with event listener
 
 $("#search-button").on("click", function(event){
     event.preventDefault()
@@ -15,9 +15,12 @@ $("#search-button").on("click", function(event){
 
 })
 
+//2.API returns current weather conditions for the city to include: city name, date,
+//temperature, humidity, wind speed, using function to call each element
+
 function displayWeather(cityName){
     $.ajax ({
-        url:`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${APIKey}`,
+        url:`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&uvi?lat={lat}&lon={lon}&units=imperial&&appid=${APIKey}`,
         method:"GET"
     }).then(function(currentWeather){
         var currentDate = moment(currentWeather.dt, "X").format("(MM/DD/YYYY)")
@@ -34,15 +37,16 @@ function displayWeather(cityName){
        <p>Wind Speed:</p>
        <span class="current" id="wind-speed">${currentWeather.wind.speed}</span>
        <p>UV Index:</p>
-       <span class="current" id="uv-index"></span>
+    <span class="current" id="uv-index">${currentWeather.coord.lon}</span>
+
        </div> `)
      })
 }
 
 
-//1.City name is entered, search is conducted with API
-//2.API returns current weather conditions for the city to include: city name, date,
-//temperature, humidity, wind speed, and UV index.
+
+
+
 //3. 5-day forecast is displayed for the searched city and includes: date, weather icon,
 // humidity, and temperature.
 //4.City name is stored to localStorage for user to retrieve at later time.
