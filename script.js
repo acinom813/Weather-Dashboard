@@ -37,16 +37,39 @@ function displayWeather(cityName){
        <p>Wind Speed:</p>
        <span class="current" id="wind-speed">${currentWeather.wind.speed}</span>
        <p>UV Index:</p>
-    <span class="current" id="uv-index">${currentWeather.coord.lon}</span>
-
+    <span class="current" id="uv-index">${currentWeather.coord.lon.lat}</span>
        </div> `)
      })
 }
 
 
-
-
-
 //3. 5-day forecast is displayed for the searched city and includes: date, weather icon,
 // humidity, and temperature.
+
+function fiveDay(cityName){
+    $.ajax ({
+        url:`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&&appid=${APkey}`,
+        method:"GET"
+    }).then(function(){
+
+        for (let i = 0; i < 5; i++) {
+            
+        
+        var date = moment(currentWeather.dt, "X").format("(MM/DD/YYYY)").toLocalDateString();
+        var iconcode = currentWeather.weather[0].icon
+        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+         
+                $("fDate0").html(date);
+                $("fImg0").html("<img src=+iconurl>");
+                $("fTemp0").html(temp);
+                $("fHumidity0").html(humidity);
+
+    }
+
+    });
+
+}
+
+
+
 //4.City name is stored to localStorage for user to retrieve at later time.
