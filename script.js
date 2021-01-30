@@ -1,8 +1,6 @@
 var APIKey="8be70af8b0843b55f72823c370fc7eb2";
 //https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={8be70af8b0843b55f72823c370fc7eb2}
-var citiesSearched= document.querySelector ("cities");
-var searchButton = ("search-button")
-var currentCity = ("c")
+
 
 
 //1.City name is entered, search is conducted with API: create button with event listener
@@ -45,31 +43,44 @@ function displayWeather(cityName){
 
 //3. 5-day forecast is displayed for the searched city and includes: date, weather icon,
 // humidity, and temperature.
-
-function fiveDay(cityName){
-    $.ajax ({
-        url:`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&&appid=${APkey}`,
+function fiveDay(cityid){
+    var dayend = false;
+    var queryforecastURL="https://api.openweathermap.org/data/2.5/forecast?id="+cityid+'&appid='+APIKey;
+    $.ajax({
+        url:queryforecastURL,
         method:"GET"
-    }).then(function(){
-
+    
+    }).then(function(response) {
         for (let i = 0; i < 5; i++) {
+            var date = new Date((response.list[((i+1) *8)-1].dt)*1000).toLocaleDateString();
+            var iconcode= response.list[((i+1)*8)-1].weather[0].icon;
+            var iconurl="https://openweathermap.org/img/wn/"+iconcode+".png";
+            var tempK= response.list [((i+1)*8)-1].main.temp;
+            var tempF = (((tempK-273.5)*1.80)+32).toFixed(2);
+            var humidity= response.list[((i+1)*8)-1].main.humidity;
             
-        
-        var date = moment(currentWeather.dt, "X").format("(MM/DD/YYYY)").toLocalDateString();
-        var iconcode = currentWeather.weather[0].icon
-        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-         
-                $("fDate0").html(date);
-                $("fImg0").html("<img src=+iconurl>");
-                $("fTemp0").html(temp);
-                $("fHumidity0").html(humidity);
+            $('#fDate'+ i).html(date);
+            $('#fImg'+ i).html("<img src="+ iconurl+">");
+            $('#fTemp' + i).html(tempF+"&#8457");
+            $('#fHumidity' + i).html(humidity+'%');
 
-    }
+            
+        }
 
-    });
+});
 
-}
 
 
 
 //4.City name is stored to localStorage for user to retrieve at later time.
+
+function storeCity(){
+    var elList = document.getElementById("city-list");
+    $(elList).attr('class', 'city-list');
+    $('.city-list').append(elList);
+}
+
+
+/*$(".list-group-item").on("click", function () {
+    var cityName = localStorage.getItem("cityName");
+})*/
