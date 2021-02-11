@@ -20,12 +20,11 @@
     </div>
     
     <!--Search Componenet-->
-      <div class="container">
-        
-            <div class="row">
-                <div class="col-sm-4 bg light">
-                    <h3>Location Search</h3>
-                </div>
+        <div class="container">           
+                <div class="row">
+                    <div class="col-sm-4 bg light">
+                        <h3>Location Search</h3>
+                    </div>
 
     <!--Field for user input to search cities-->           
                 <div>
@@ -37,67 +36,62 @@
    <!--list to hold all search entries-->
    <div class="card" style="width: 18rem;">
     <ul class="city-list list-group-flush">
-      <li class="list-group-item"></li>
+      
     </ul>
   </div>
+
 
     <!--Area that houses current weather results-->        
       <div class="col-sm-8">
         <div class="row ml-2 border"></div>
-        <div class="col-sm-12" id="current-weather"></div>
-       
-        
-        
+        <div class="col-sm-12" id="current-weather"></div>    
+        <div id='uv-index'></div>
         
     <!--Area that houses 5-day Forecast Results-->
-        <div class="col-sm-12" id="five-day">
-            <h4>5-Day Forecast:</h4> 
-        <div class= row>
-            <div class="col-md-2">
+    <div class="col-sm-12" id="five-day">
+        <h3><strong>5-Day Forecast</strong></h3>
+        <div class ="row text-light">
+            <div class="col-md-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
                 <p id="fDate0"></p>
                 <p id="fImg0"></p>
                 <p>Temp:<span id="fTemp0"></span></p>
                 <p>Humidity:<span id="fHumidity0"></span></p>
             </div>
-        
-            <div class= row>
-                <div class="col-md-2">
-                    <p id="fDate1"></p>
-                    <p id="fImg1"></p>
-                    <p>Temp:<span id="fTemp1"></span></p>
-                    <p>Humidity:<span id="fHumidity1"></span></p>
-                </div>
+            <div class="col-md-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                <p id="fDate1"></p>
+                <p id="fImg1"></p>
+                <p>Temp:<span id="fTemp1"></span></p>
+                <p>Humidity:<span id="fHumidity1"></span></p>
+            </div>
+            <div class="col-md-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                <p id="fDate2"></p>
+                <p id="fImg2"></p>
+                <p>Temp:<span id="fTemp2"></span></p>
+                <p>Humidity:<span id="fHumidity2"></span></p>
+            </div>
+            <div class="col-md-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                <p id="fDate3"></p>
+                <p id="fImg3"></p>
+                <p>Temp:<span id="fTemp3"></span></p>
+                <p>Humidity:<span id="fHumidity3"></span></p>
+            </div>
             
-                <div class="col-md-2">
-                    <p id="fDate2"></p>
-                    <p id="fImg2"></p>
-                    <p>Temp:<span id="fTemp2"></span></p>
-                    <p>Humidity:<span id="fHumidity2"></span></p>
-                </div>
-            
-                <div class="col-md-2">
-                    <p id="fDate3"></p>
-                    <p id="fImg3"></p>
-                    <p>Temp:<span id="fTemp3"></span></p>
-                    <p>Humidity:<span id="fHumidity3"></span></p>
-                </div>
-            
-                <div class="col-md-2">
-                    <p id="fDate4"></p>
-                    <p id="fImg4"></p>
-                    <p>Temp:<span id="fTemp4"></span></p>
-                    <p>Humidity:<span id="fHumidity4"></span></p>
-                </div>
+            <div class="col-md-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                <p id="fDate4"></p>
+                <p id="fImg4"></p>
+                <p>Temp:<span id="fTemp4"></span></p>
+                <p>Humidity:<span id="fHumidity4"></span></p>
+            </div>
          
         </div>
-        </div>
-        </div>
+    </div>
+</div>
         
    
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
 </body>
 </html>
